@@ -13,8 +13,7 @@ public class Client {
 
         Scanner scannerInput = new Scanner(System.in);
 
-
-
+        Scanner scanner = new Scanner(clientSocket.getInputStream());
 
         while(true){
             System.out.println("Waiting for user input");
@@ -22,7 +21,6 @@ public class Client {
             clientSocket.getOutputStream().write((input+"\n").getBytes());
             clientSocket.getOutputStream().flush();
             System.out.println("sent input to server");
-            Scanner scanner = new Scanner(clientSocket.getInputStream());
             System.out.println(scanner.nextLine());
         }
     }
